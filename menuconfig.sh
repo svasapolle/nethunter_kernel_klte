@@ -1,0 +1,36 @@
+#!/bin/bash
+# simple script for executing menuconfig
+
+# root directory of NetHunter klte git repo (default is this script's location)
+RDIR=$(pwd)
+DEFCONFIG=nethunter_defconfig
+
+cd $RDIR
+echo "Cleaning build..."
+rm -rf build
+mkdir build
+ARCH=arm make -s -i -C $RDIR O=build $DEFCONFIG VARIANT_DEFCONFIG=$DEFCONFIG menuconfig
+echo "Showing differences between old config and new config"
+echo "-----------------------------------------------------"
+command -v colordiff >/dev/null 2>&1 && {
+	diff -Bwu --label "old config" arch/arm/configs/$DEFCONFIG --label "new config" build/.config | colordiff
+} || {
+	diff -Bwu --label "old config" arch/arm/configs/$DEFCONFIG --label "new config" build/.config
+	echo "-----------------------------------------------------"
+	echo "Consider installing the colordiff package to make diffs easier to read"
+}
+echo "-----------------------------------------------------"
+echo -n "Are you satisfied with these changes? Y/N: "
+read option
+case $option in
+y|Y)
+	cp build/.config arch/arm/configs/$DEFCONFIG
+	echo "Copied new config to arch/arm/configs/$DEFCONFIG"
+	;;
+*)
+	echo "That's unfortunate"
+	;;
+esac
+echo "Cleaning build..."
+rm -rf build
+echo "Done."
