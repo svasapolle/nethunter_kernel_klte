@@ -12,6 +12,20 @@
 # once you've set up the config section how you like it, you can simply run
 # ./build.sh
 #
+##################### VARIANTS #####################
+#
+# eur = kltexx, kltecan, kltetmo, klteub, klteatt, klteskt, kltektt
+#       G900F,  G900W8,  G900T,   G900M,  G900A,   G900S,   G900K
+#
+# dv  = kltedv (Vodafone)
+#       G900I
+#
+# kdi = kltekdi (Au by KDDI)
+#       SCL23
+#
+# spr = kltespr (Sprint)
+#       G900P
+#
 ###################### CONFIG ######################
 
 # root directory of NetHunter klte git repo (default is this script's location)
