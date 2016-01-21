@@ -56,7 +56,7 @@ THREADS=5
 
 export ARCH=arm
 export CROSS_COMPILE=$TOOLCHAIN/bin/arm-eabi-
-export LOCALVERSION="$VARIANT-cm13.0-$VER"
+export LOCALVERSION="$VARIANT-cm12.1-$VER"
 
 KDIR=$RDIR/build/arch/arm/boot
 

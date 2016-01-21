@@ -16,7 +16,7 @@
 RDIR=$(pwd)
 
 # output directory of zImage and dtb.img
-OUT_DIR=/home/jc/build/kali-nethunter/nethunter-installer/kernels/marshmallow
+OUT_DIR=/home/jc/build/kali-nethunter/nethunter-installer/kernels/lollipop
 
 ############## SCARY NO-TOUCHY STUFF ###############
 
