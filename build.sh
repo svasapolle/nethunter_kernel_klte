@@ -1,6 +1,6 @@
 #!/bin/bash
 # NetHunter kernel for Samsung Galaxy S5 build script by jcadduono
-# This build script is for AOSP/CyanogenMod with Kali Nethunter support only
+# This build script is for TouchWiz with Kali Nethunter support only
 
 ################### BEFORE STARTING ################
 #
@@ -56,7 +56,7 @@ THREADS=5
 
 export ARCH=arm
 export CROSS_COMPILE=$TOOLCHAIN/bin/arm-eabi-
-export LOCALVERSION="$VARIANT-cm13.0-$VER"
+export LOCALVERSION="$VARIANT-touchwiz-$VER"
 
 KDIR=$RDIR/build/arch/arm/boot
 

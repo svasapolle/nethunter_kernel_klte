@@ -1,6 +1,6 @@
 #!/bin/bash
 # NetHunter kernel for Samsung Galaxy S5 build script by jcadduono
-# This build script is for AOSP/CyanogenMod with Kali Nethunter support only
+# This build script is for TouchWiz with Kali Nethunter support only
 # This build script builds all variants in ./VARIANTS
 
 ################### BEFORE STARTING ################
@@ -16,7 +16,7 @@
 RDIR=$(pwd)
 
 # output directory of zImage and dtb.img
-OUT_DIR=/home/jc/build/kali-nethunter/nethunter-installer/kernels/marshmallow
+OUT_DIR=/home/jc/build/kali-nethunter/nethunter-installer/kernels/lollipop
 
 ############## SCARY NO-TOUCHY STUFF ###############
 
@@ -35,9 +35,9 @@ mkdir -p $OUT_DIR
 for V in $(cat $RDIR/VARIANTS)
 do
 	[ "$V" == "eur" ] && {
-		VARIANT_DIR=$OUT_DIR/klte
+		VARIANT_DIR=$OUT_DIR/klte-touchwiz
 	} || {
-		VARIANT_DIR=$OUT_DIR/klte$V
+		VARIANT_DIR=$OUT_DIR/klte${V}-touchwiz
 	}
 	$RDIR/build.sh $V
 	MOVE_IMAGES
