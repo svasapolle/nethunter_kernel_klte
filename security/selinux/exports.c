@@ -18,12 +18,14 @@
 
 bool selinux_is_enabled(void)
 {
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	return true;
 #elif defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
 	return false;
 #else
+=======
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	return selinux_enabled;
-#endif
 }
 EXPORT_SYMBOL_GPL(selinux_is_enabled);

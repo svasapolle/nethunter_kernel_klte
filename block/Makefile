@@ -17,6 +17,10 @@ obj-$(CONFIG_IOSCHED_DEADLINE)	+= deadline-iosched.o
 obj-$(CONFIG_IOSCHED_ROW)	+= row-iosched.o
 obj-$(CONFIG_IOSCHED_CFQ)	+= cfq-iosched.o
 obj-$(CONFIG_IOSCHED_SIO)	+= sio-iosched.o
+<<<<<<< HEAD
+=======
+obj-$(CONFIG_IOSCHED_FIOPS)	+= fiops-iosched.o
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 obj-$(CONFIG_IOSCHED_TEST)	+= test-iosched.o
 
 obj-$(CONFIG_IOSCHED_BFQ)	+= bfq-iosched.o

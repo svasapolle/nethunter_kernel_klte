@@ -170,6 +170,7 @@ static ssize_t sel_write_enforce(struct file *file, const char __user *buf,
 	length = -EINVAL;
 	if (sscanf(page, "%d", &new_value) != 1)
 		goto out;
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	// If build is user build and enforce option is set, selinux is always enforcing
 	new_value = 1;
@@ -196,6 +197,15 @@ static ssize_t sel_write_enforce(struct file *file, const char __user *buf,
 	selnl_notify_setenforce(new_value);
         selinux_status_update_setenforce(new_value);
 #else
+=======
+
+#if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
+	new_value = 1;
+#elif defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
+	new_value = 0;
+#endif
+
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (new_value != selinux_enforcing) {
 		length = task_has_security(current, SECURITY__SETENFORCE);
 		if (length)
@@ -211,7 +221,6 @@ static ssize_t sel_write_enforce(struct file *file, const char __user *buf,
 		selnl_notify_setenforce(selinux_enforcing);
 		selinux_status_update_setenforce(selinux_enforcing);
 	}
-#endif
 	length = count;
 out:
 	free_page((unsigned long) page);
@@ -1954,9 +1963,12 @@ static int __init init_sel_fs(void)
 {
 	int err;
 
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	selinux_enabled = 1;
 #else
+=======
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (!selinux_enabled)
 		return 0;
 #endif

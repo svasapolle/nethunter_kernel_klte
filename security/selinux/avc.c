@@ -1087,10 +1087,13 @@ static noinline int avc_denied(u32 ssid, u32 tsid,
 {
 	if (flags & AVC_STRICT)
 		return -EACCES;
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	if (!(avd->flags & AVD_FLAGS_PERMISSIVE))
 		return -EACCES;
 #elif !defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
+=======
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (selinux_enforcing && !(avd->flags & AVD_FLAGS_PERMISSIVE))
 		return -EACCES;
 #endif

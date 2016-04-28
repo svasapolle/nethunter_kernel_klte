@@ -248,9 +248,13 @@ static __init int sel_netport_init(void)
 {
 	int iter;
 	int ret;
+<<<<<<< HEAD
 #ifdef CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE
 	selinux_enabled = 1;
 #endif
+=======
+
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (!selinux_enabled)
 		return 0;
 

@@ -284,9 +284,12 @@ static __init int sel_netif_init(void)
 {
 	int i, err;
 
+<<<<<<< HEAD
 #ifdef CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE
 	selinux_enabled = 1;
 #endif
+=======
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (!selinux_enabled)
 		return 0;
 

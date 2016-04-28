@@ -770,11 +770,14 @@ out:
 	kfree(n);
 	kfree(t);
 
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	return -EPERM;
 #elif defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
 	return 0;
 #else
+=======
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (!selinux_enforcing)
 		return 0;
 	return -EPERM;
@@ -1524,11 +1527,15 @@ out:
 	kfree(s);
 	kfree(t);
 	kfree(n);
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	return -EACCES;
 #elif defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
 	return 0;
 #else
+=======
+
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (!selinux_enforcing)
 		return 0;
 	return -EACCES;
@@ -1820,9 +1827,13 @@ static inline int convert_context_handle_invalid_context(struct context *context
 {
 	char *s;
 	u32 len;
+<<<<<<< HEAD
 #if defined(CONFIG_SECURITY_SELINUX_ALWAYS_ENFORCE)
 	return -EINVAL;
 #elif !defined(CONFIG_SECURITY_SELINUX_NEVER_ENFORCE)
+=======
+
+>>>>>>> refs/remotes/jcadduono/cm-13.0
 	if (selinux_enforcing)
 		return -EINVAL;
 #endif

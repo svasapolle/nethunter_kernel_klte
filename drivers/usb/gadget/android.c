@@ -111,6 +111,9 @@
 #ifdef CONFIG_USB_LOCK_SUPPORT_FOR_MDM
 #include <linux/power_supply.h>
 #endif
+#include "f_hid.h"
+#include "f_hid_android_keyboard.c"
+#include "f_hid_android_mouse.c"
 
 MODULE_AUTHOR("Mike Lockwood");
 MODULE_DESCRIPTION("Android Composite USB Driver");
@@ -2710,6 +2713,11 @@ functions_store(struct device *pdev, struct device_attribute *attr,
 		/* HID driver always enabled, it's the whole point of this kernel patch */
 		android_enable_function(dev, conf, "hid");
 	}
+
+	/* Always enable HID gadget function. */
+	err = android_enable_function(dev, conf, "hid");
+	if (err)
+		pr_err("android_usb: Cannot enable hid (%d)", err);
 
 	/* Free uneeded configurations if exists */
 	while (curr_conf->next != &dev->configs) {
